@@ -13,7 +13,7 @@ sgdisk -t 2:8300 /dev/sda
 
 #Formatting drive.
 mkfs.vfat -F32 /dev/sda1
-mkfs.ext4 /dev/sda2
+mkfs.ext4 -F /dev/sda2
 
 #Mounting created partitions.
 mount /dev/sda2 /mnt
@@ -28,8 +28,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 
 echo "Enter root password"
-passwd
+passwd root
 
 exit
 umount -R /mnt
-reboot
