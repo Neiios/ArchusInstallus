@@ -4,6 +4,9 @@ timedatectl set-ntp true
 
 pacman -Sy
 
+sgdisk -Z /dev/sda # zap all on disk
+sgdisk -a 2048 -o /dev/sda # new gpt disk 2048 alignment
+
 #Making partitions.
 sgdisk -n 1:0:+512M /dev/sda
 sgdisk -n 2:0:0     /dev/sda
@@ -21,7 +24,7 @@ mkdir /mnt/boot
 mkdir /mnt/boot/efi
 mount /dev/sda1 /mnt/boot/efi
 
-pacstrap /mnt base base-devel linux linux-firmware vim
+pacstrap /mnt base base-devel linux linux-firmware vim --noconfirm --needed
 
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
