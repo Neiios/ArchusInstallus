@@ -5,11 +5,11 @@ timedatectl set-ntp true
 pacman -Sy
 
 #Making partitions.
-sgdisk -n 1:0:+512M /dev/sda1
-sgdisk -n 2:0:0     /dev/sda2
+sgdisk -n 1:0:+512M /dev/sda
+sgdisk -n 2:0:0     /dev/sda
 
-sgdisk -t 1:ef00 /dev/sda1
-sgdisk -t 2:8300 /dev/sda2
+sgdisk -t 1:ef00 /dev/sda
+sgdisk -t 2:8300 /dev/sda
 
 #Formatting drive.
 mkfs.vfat -F32 /dev/sda1
