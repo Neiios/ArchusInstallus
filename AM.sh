@@ -24,8 +24,10 @@ mount /dev/sda1 /mnt/boot/efi
 pacstrap /mnt base base-devel linux linux-firmware vim
 
 genfstab -U /mnt >> /mnt/etc/fstab
-
 arch-chroot /mnt
+
+pacman -S network-manager dhclient --noconfirm --needed
+systemctl enable --now NetworkManager
 
 echo "Enter root password"
 passwd root
