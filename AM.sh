@@ -26,3 +26,10 @@ pacstrap /mnt base base-devel linux linux-firmware vim
 genfstab -U /mnt >> /mnt/etc/fstab
 
 arch-chroot /mnt
+
+echo "Enter root password"
+passwd
+
+exit
+umount -R /mnt
+reboot
