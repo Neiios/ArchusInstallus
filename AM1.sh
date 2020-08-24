@@ -2,10 +2,8 @@
 
 timedatectl set-ntp true
 
-pacman -Sy
-
-sgdisk -Z /dev/sda # zap all on disk
-sgdisk -a 2048 -o /dev/sda # new gpt disk 2048 alignment
+#sgdisk -Z /dev/sda # zap all on disk
+#sgdisk -a 2048 -o /dev/sda # new gpt disk 2048 alignment
 
 #Making partitions.
 sgdisk -n 1:0:+512M /dev/sda
@@ -19,10 +17,10 @@ mkfs.vfat -F32 /dev/sda1
 mkfs.ext4 -F /dev/sda2
 
 #Mounting created partitions.
-mount /dev/sda2 /mnt
+mount /dev/sda6 /mnt
 mkdir /mnt/boot
 mkdir /mnt/boot/efi
-mount /dev/sda1 /mnt/boot/efi
+mount /dev/sda5 /mnt/boot/efi
 
 pacstrap /mnt base base-devel linux linux-firmware vim --noconfirm --needed
 cp AM2.sh /mnt/AM2.sh
