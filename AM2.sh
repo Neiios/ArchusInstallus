@@ -17,7 +17,7 @@ cat <<EOF > /boot/loader/entries/arch.conf
 title Arch Linux  
 linux /vmlinuz-linux  
 initrd  /initramfs-linux.img  
-options root=/dev/sda1 rw
+options root=/dev/sda5 rw
 EOF
 
 reboot
