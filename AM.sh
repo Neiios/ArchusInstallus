@@ -28,12 +28,3 @@ pacstrap /mnt base base-devel linux linux-firmware vim --noconfirm --needed
 
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
-
-pacman -S network-manager dhclient --noconfirm --needed
-systemctl enable --now NetworkManager
-
-echo "Enter root password"
-passwd root
-
-exit
-umount -R /mnt
