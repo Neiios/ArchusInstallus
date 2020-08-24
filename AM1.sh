@@ -25,6 +25,6 @@ mkdir /mnt/boot/efi
 mount /dev/sda1 /mnt/boot/efi
 
 pacstrap /mnt base base-devel linux linux-firmware vim --noconfirm --needed
-
+cp AM2.sh /mnt/AM2.sh
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt
+arch-chroot /mnt ./AM2.sh
