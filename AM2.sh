@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-pacman -S networkmanager dhclient efibootmgr os-prober ntfs-3g dosfstools --noconfirm --needed
-systemctl enable --now NetworkManager
-
 passwd root
 
 bootctl install
@@ -12,6 +9,11 @@ linux /vmlinuz-linux
 initrd  /initramfs-linux.img  
 options root=/dev/sda6 rw
 EOF
+
+pacman -S networkmanager dhclient --noconfirm --needed
+systemctl enable --now NetworkManager
+
+passwd root
 
 exit
 umount -R /mnt
