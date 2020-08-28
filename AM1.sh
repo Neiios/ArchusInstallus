@@ -17,11 +17,33 @@ mkfs.vfat -F32 /dev/sda5
 mkfs.ext4 -F /dev/sda6
 
 #Mounting created partitions.
-mount /dev/sda6 /mnt
+mount -t ext4 /dev/sda6 /mnt
 mkdir /mnt/boot
-mount /dev/sda5 /mnt/boot
+mount -t vfat /dev/sda5 /mnt/boot
 
 pacstrap /mnt base base-devel linux linux-firmware vim --noconfirm --needed
-cp AM2.sh /mnt/AM2.sh
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt /bin/bash ./AM2.sh
+arch-chroot /mnt
+
+passwd root
+
+bootctl install
+cat <<EOF > /boot/loader/entries/arch.conf
+title Arch Linux  
+linux /vmlinuz-linux  
+initrd  /initramfs-linux.img  
+options root=/dev/sda6 rw
+EOF
+
+pacman -S networkmanager dhclient --noconfirm --needed
+systemctl enable --now NetworkManager
+
+passwd root
+
+exit
+umount -R /mnt
+
+echo "--------------------------------------"
+echo "--   SYSTEM READY FOR FIRST BOOT    --"
+echo "--------------------------------------"
+
