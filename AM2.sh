@@ -12,12 +12,6 @@ locale-gen
 echo Summit > /etc/hostname
 echo 127.0.1.1 localhost.localdomain Summit > /etc/hosts
 
-bootctl install
-cat <<EOF > /boot/loader/entries/arch.conf
-title Arch Linux  
-linux /vmlinuz-linux  
-initrd  /initramfs-linux.img  
-options root=/dev/sda5 rw
-EOF
+
 
 reboot
