@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 pacman -S networkmanager dhclient efibootmgr os-prober ntfs-3g dosfstools --noconfirm --needed
 systemctl enable --now NetworkManager
 
