@@ -13,8 +13,8 @@ sgdisk -t 1:ef00 /dev/sda
 sgdisk -t 2:8300 /dev/sda
 
 #Formatting drive.
-mkfs.vfat -F32 /dev/sda1
-mkfs.ext4 -F /dev/sda2
+mkfs.vfat -F32 /dev/sda5
+mkfs.ext4 -F /dev/sda6
 
 #Mounting created partitions.
 mount /dev/sda6 /mnt
