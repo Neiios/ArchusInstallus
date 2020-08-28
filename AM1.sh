@@ -19,8 +19,7 @@ mkfs.ext4 -F /dev/sda6
 #Mounting created partitions.
 mount /dev/sda6 /mnt
 mkdir /mnt/boot
-mkdir /mnt/boot/efi
-mount /dev/sda5 /mnt/boot/efi
+mount /dev/sda5 /mnt/boot
 
 pacstrap /mnt base base-devel linux linux-firmware vim --noconfirm --needed
 cp AM2.sh /mnt/AM2.sh
