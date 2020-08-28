@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-passwd root
-
 bootctl install
 cat <<EOF > /boot/loader/entries/arch.conf
 title Arch Linux  
