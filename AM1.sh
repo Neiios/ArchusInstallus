@@ -6,11 +6,11 @@ timedatectl set-ntp true
 #sgdisk -a 2048 -o /dev/sda # new gpt disk 2048 alignment
 
 #Making partitions.
-sgdisk -n 1:0:+512M /dev/sda
-sgdisk -n 2:0:0     /dev/sda
+sgdisk -n 5:0:+512M /dev/sda
+sgdisk -n 6:0:0     /dev/sda
 
-sgdisk -t 1:ef00 /dev/sda
-sgdisk -t 2:8300 /dev/sda
+sgdisk -t 5:ef00 /dev/sda
+sgdisk -t 6:8300 /dev/sda
 
 #Formatting drive.
 mkfs.vfat -F32 /dev/sda5
