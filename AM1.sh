@@ -5,6 +5,12 @@ timedatectl set-ntp true
 #sgdisk -Z /dev/sda # zap all on disk
 #sgdisk -a 2048 -o /dev/sda # new gpt disk 2048 alignment
 
+#Preparing drive.
+mkfs.ext4 -F /dev/sda5
+mkfs.vfat -F32 /dev/sda6
+sgdisk -d 5 /dev/sda
+sgdisk -d 6 /dev/sda
+
 #Making partitions.
 sgdisk -n 5:0:+512M /dev/sda
 sgdisk -n 6:0:0     /dev/sda
