@@ -29,7 +29,6 @@ mount -t vfat /dev/sda5 /mnt/boot
 
 pacstrap /mnt base base-devel linux linux-firmware vim --noconfirm --needed
 cp AM2.sh /mnt/AM2.sh
-cp AM3.sh /mnt/AM3.sh
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt /bin/bash ./AM2.sh
 
