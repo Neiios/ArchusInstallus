@@ -32,5 +32,5 @@ cp AI2.sh /mnt/AI2.sh
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt /bin/bash ./AI2.sh
 
-umount -R /mnt
-reboot
+#umount -R /mnt
+#reboot
