@@ -30,7 +30,7 @@ mount -t vfat /dev/sda5 /mnt/boot
 pacstrap /mnt base base-devel linux linux-firmware vim --noconfirm --needed
 cp AI2.sh /mnt/AI2.sh
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt /bin/bash ./AMI.sh
+arch-chroot /mnt /bin/bash ./AI2.sh
 
 umount -R /mnt
 reboot
